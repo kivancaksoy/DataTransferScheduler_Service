@@ -10,7 +10,6 @@ import scheduledExternal.scheduledService.dataAccess.CustomerRepository;
 import scheduledExternal.scheduledService.entities.Customer;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CustomerManager implements CustomerService {
@@ -41,10 +40,10 @@ public class CustomerManager implements CustomerService {
         try {
             List<CustomerDto> customerDtos =
                     customers.stream().map(customerDtoConverter::convertToCustomerDto).toList();
-            logger.info("Başarıyla listelendi.");
+            logger.info("Customers listed.");
             return customerDtos;
         } catch (Exception exception) {
-            logger.error("Listelenirken hata oluştu: " + exception.getMessage());
+            logger.error("An error occurred while listing: " + exception.getMessage());
         }
         return null;
     }

@@ -9,7 +9,6 @@ public class CustomerDtoConverter {
 
     public CustomerDto convertToCustomerDto(Customer customer) {
         return new CustomerDto(
-                customer.getId(),
                 customer.getTckn(),
                 customer.getName(),
                 customer.getSurname(),

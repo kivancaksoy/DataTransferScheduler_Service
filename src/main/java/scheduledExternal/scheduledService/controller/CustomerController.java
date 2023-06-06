@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import scheduledExternal.scheduledService.business.abstracts.CustomerService;
-import scheduledExternal.scheduledService.business.responses.GetAllCustomersResponse;
+import scheduledExternal.scheduledService.business.dto.CustomerDto;
 
 import java.util.List;
 
@@ -19,7 +19,12 @@ public class CustomerController {
     }
 
     @GetMapping("/getAllBaseCustomer")
-    public ResponseEntity<List<GetAllCustomersResponse>> getAllCustomer() {
+    public ResponseEntity<List<CustomerDto>> getAllCustomer() {
         return ResponseEntity.ok(customerService.getAllCustomer());
+    }
+
+    @GetMapping("/getAllCustomerWithVersion")
+    public ResponseEntity<List<CustomerDto>> getAllCustomerWithVersion(int versionNumber) {
+        return ResponseEntity.ok(customerService.getAllCustomerWithVersion(versionNumber));
     }
 }

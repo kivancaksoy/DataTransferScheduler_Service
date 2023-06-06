@@ -1,11 +1,12 @@
-package scheduledExternal.scheduledService.business.responses;
+package scheduledExternal.scheduledService.business.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-public class GetAllCustomersResponse {
+public class CustomerDto {
     private int id;
     private String tckn;
     private String name;

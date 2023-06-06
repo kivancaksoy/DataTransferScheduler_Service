@@ -25,18 +25,18 @@ public class CustomerManager implements CustomerService {
     @Override
     public List<CustomerDto> getAllCustomer() {
         List<Customer> customers = customerRepository.findAll();
-        return getCustomerDtos(customers);
+        return getAllCustomerDto(customers);
     }
 
     @Override
     public List<CustomerDto> getAllCustomerWithVersion(int versionNumber) {
         List<Customer> customers = customerRepository.findByVersionNumberGreaterThanEqual(versionNumber);
 
-        return getCustomerDtos(customers);
+        return getAllCustomerDto(customers);
 
     }
 
-    private List<CustomerDto> getCustomerDtos(List<Customer> customers) {
+    private List<CustomerDto> getAllCustomerDto(List<Customer> customers) {
         try {
             List<CustomerDto> customerDtos =
                     customers.stream().map(customerDtoConverter::convertToCustomerDto).toList();
